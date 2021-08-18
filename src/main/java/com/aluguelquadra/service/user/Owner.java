@@ -8,14 +8,14 @@ import javax.validation.constraints.NotBlank;
 import java.util.UUID;
 
 @Entity
-public class User {
+public class Owner {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotBlank
-    private String externalId = UUID.randomUUID().toString();
+    private UUID externalId = UUID.randomUUID();
 
     @NotBlank
     private String name;
@@ -24,18 +24,18 @@ public class User {
     @NotBlank
     private String hour;
 
-    public User(@NotBlank String name,
-                @NotBlank String day,
-                @NotBlank String hour) {
+    public Owner(@NotBlank String name,
+                 @NotBlank String day,
+                 @NotBlank String hour) {
         this.name = name;
         this.day = day;
         this.hour = hour;
     }
 
-    public User() {
+    public Owner() {
     }
 
-    public String getExternalId() {
+    public UUID getExternalId() {
         return externalId;
     }
 

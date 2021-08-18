@@ -2,22 +2,24 @@ package com.aluguelquadra.service.user;
 
 import org.springframework.stereotype.Component;
 
+import java.util.UUID;
+
 @Component
-public class UserResponse {
+public class OwnerResponse {
 
     private String name;
-    private String externalId;
+    private UUID externalId;
 
 
-    public UserResponse(String name, String externalId) {
+    public OwnerResponse(String name, UUID externalId) {
         this.name = name;
         this.externalId = externalId;
     }
 
-    public UserResponse() {
+    public OwnerResponse() {
     }
 
-    public String getExternalId() {
+    public UUID getExternalId() {
         return externalId;
     }
 

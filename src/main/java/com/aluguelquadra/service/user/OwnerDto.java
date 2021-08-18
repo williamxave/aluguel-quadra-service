@@ -6,7 +6,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
 
 @Component
-public class UserDto {
+public class OwnerDto {
 
     @NotBlank
     private String name;
@@ -16,17 +16,17 @@ public class UserDto {
     @NotBlank
     private String hour;
 
-    public UserDto(@NotBlank String name, @NotBlank String day, @NotBlank String hour) {
+    public OwnerDto(@NotBlank String name, @NotBlank String day, @NotBlank String hour) {
         this.name = name;
         this.day = day;
         this.hour = hour;
     }
 
     @Deprecated
-    public UserDto() {}
+    public OwnerDto() {}
 
-    public User toModel(){
-        return new User(
+    public Owner toModel(){
+        return new Owner(
                 this.name,
                 this.day,
                 this.hour

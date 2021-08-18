@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -19,8 +18,9 @@ public class ShowDateOffController {
     }
 
     @GetMapping
-    public ResponseEntity<List<LocalDate>> showDayOff(){
-        var days = daysOff.showDaysOffs();
-        return ResponseEntity.ok(days);
+    public ResponseEntity<List<Day>> showDayOff(){
+        var day = daysOff.showDaysOffs();
+        return ResponseEntity.ok(day);
     }
+
 }
