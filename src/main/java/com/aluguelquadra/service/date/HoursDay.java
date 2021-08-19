@@ -10,13 +10,11 @@ public enum HoursDay {
     THIRD_TIME,
     FOURTH_TIME;
 
-    public static List<Hours> getHours() {
-        List<Hours> possibleHours = new ArrayList<>();
+    public static List<String> getHours() {
+        List<String> possibleHours = new ArrayList<>();
         for (HoursDay hora : HoursDay.values()) {
-            var hour = new Hours(hora);
-            possibleHours.add(hour);
+            possibleHours.add(hora.toString());
         }
-
         return possibleHours;
     }
 }

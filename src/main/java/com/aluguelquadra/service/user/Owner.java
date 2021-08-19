@@ -14,7 +14,6 @@ public class Owner {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotBlank
     private UUID externalId = UUID.randomUUID();
 
     @NotBlank
