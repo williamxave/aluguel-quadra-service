@@ -1,10 +1,8 @@
 package com.aluguelquadra.service.day;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.time.LocalDate;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Day {
@@ -13,24 +11,39 @@ public class Day {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDate day = LocalDate.now();
+    private String day;
 
-    private String hour;
+    private String month;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Hour> hours = new ArrayList<>();
 
     @Deprecated
     private Day(){
     }
 
-    public Day(String hour) {
+    public Day(String day, String month) {
         this.day = day;
-        this.hour = hour;
+        this.month = month;
     }
 
-    @Override
-    public String toString() {
-        return "Day{" +
-                "day=" + day +
-                ", hour='" + hour + '\'' +
-                '}';
+    public Long getId() {
+        return id;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public String getDay() {
+        return day;
+    }
+
+    public List<Hour> getHours() {
+        return hours;
+    }
+    
+    public void addHours(List<Hour> hours){
+        this.hours.addAll(hours);
     }
 }
