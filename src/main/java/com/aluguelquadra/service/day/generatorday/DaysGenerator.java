@@ -2,7 +2,7 @@ package com.aluguelquadra.service.day.generatorday;
 
 import com.aluguelquadra.service.day.Day;
 import com.aluguelquadra.service.day.DayRepository;
-import com.aluguelquadra.service.day.HourRepository;
+import com.aluguelquadra.service.day.hours.HourRepository;
 import com.aluguelquadra.service.day.enums.PossibleHour;
 import org.springframework.stereotype.Component;
 
@@ -36,7 +36,7 @@ public class DaysGenerator {
             if (!dates.getDayOfWeek().equals(DayOfWeek.SUNDAY) &&
                     !dates.getDayOfWeek().equals(DayOfWeek.SATURDAY)) {
 
-                var newDay = new Day(dates.getDayOfWeek().toString(), dates.getMonth().toString());
+                var newDay = new Day(dates.getDayOfMonth(),dates.getDayOfWeek().toString(), dates.getMonth().toString());
 
                 var possibleHours = hourRepository.saveAll(PossibleHour.generetedHour());
 

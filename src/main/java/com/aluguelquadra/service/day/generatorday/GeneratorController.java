@@ -21,7 +21,7 @@ public class GeneratorController{
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping
-    public void generted(){
+    public void genereted(){
         daysGenerator.generated();
     }
 

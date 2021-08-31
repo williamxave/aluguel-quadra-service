@@ -1,4 +1,4 @@
-package com.aluguelquadra.service.day;
+package com.aluguelquadra.service.day.hours;
 
 import com.aluguelquadra.service.day.enums.PossibleHour;
 
@@ -17,7 +17,6 @@ public class Hour {
     private PossibleHour possibleHour;
 
     private Boolean rentVerified;
-
 
     public Hour(PossibleHour possibleHour, Boolean rentVerified) {
         this.possibleHour = possibleHour;
@@ -38,4 +37,5 @@ public class Hour {
     public Long getId() {
         return id;
     }
+
 }

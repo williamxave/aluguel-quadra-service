@@ -1,6 +1,6 @@
 package com.aluguelquadra.service.day.enums;
 
-import com.aluguelquadra.service.day.Hour;
+import com.aluguelquadra.service.day.hours.Hour;
 
 import java.util.ArrayList;
 import java.util.List;

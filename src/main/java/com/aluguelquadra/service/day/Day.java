@@ -1,5 +1,7 @@
 package com.aluguelquadra.service.day;
 
+import com.aluguelquadra.service.day.hours.Hour;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,19 +13,23 @@ public class Day {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String day;
+    private Integer day;
+
+    private String dayOfWeek;
 
     private String month;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany
+    @JoinColumn(name = "day_id")
     private List<Hour> hours = new ArrayList<>();
 
     @Deprecated
     private Day(){
     }
 
-    public Day(String day, String month) {
+    public Day(Integer day, String dayOfWeek ,String month) {
         this.day = day;
+        this.dayOfWeek = dayOfWeek;
         this.month = month;
     }
 
@@ -35,14 +41,18 @@ public class Day {
         return month;
     }
 
-    public String getDay() {
+    public Integer getDay() {
         return day;
     }
 
     public List<Hour> getHours() {
         return hours;
     }
-    
+
+    public String getDayOfWeek() {
+        return dayOfWeek;
+    }
+
     public void addHours(List<Hour> hours){
         this.hours.addAll(hours);
     }
