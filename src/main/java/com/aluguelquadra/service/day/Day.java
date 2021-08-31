@@ -3,6 +3,7 @@ package com.aluguelquadra.service.day;
 import com.aluguelquadra.service.day.hours.Hour;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +14,13 @@ public class Day {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     private Integer day;
 
+    @NotBlank
     private String dayOfWeek;
 
+    @NotBlank
     private String month;
 
     @OneToMany
@@ -27,7 +31,9 @@ public class Day {
     private Day(){
     }
 
-    public Day(Integer day, String dayOfWeek ,String month) {
+    public Day(@NotBlank Integer day,
+               @NotBlank String dayOfWeek,
+               @NotBlank String month) {
         this.day = day;
         this.dayOfWeek = dayOfWeek;
         this.month = month;

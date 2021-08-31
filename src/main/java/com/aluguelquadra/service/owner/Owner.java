@@ -3,6 +3,8 @@ package com.aluguelquadra.service.owner;
 import com.aluguelquadra.service.day.Day;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +15,14 @@ public class Owner {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
+    @NotBlank
     private String name;
 
+    @NotBlank
+    @Email
     private String email;
 
+    @NotBlank
     private String telephone;
 
     @OneToMany
@@ -25,7 +31,9 @@ public class Owner {
     @Deprecated
     private Owner(){}
 
-    public Owner(String name, String email, String telephone) {
+    public Owner(@NotBlank String name,
+                 @NotBlank @Email String email,
+                 @NotBlank String telephone) {
         this.name = name;
         this.email = email;
         this.telephone = telephone;
