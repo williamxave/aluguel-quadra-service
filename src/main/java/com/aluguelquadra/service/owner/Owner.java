@@ -43,6 +43,9 @@ public class Owner {
         days.add(possibleDay);
     }
 
+    public Long getId() {
+        return Id;
+    }
     public String getName() {
         return name;
     }
