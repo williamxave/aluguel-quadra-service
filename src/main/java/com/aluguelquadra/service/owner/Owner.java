@@ -7,6 +7,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 public class Owner {
@@ -20,7 +21,10 @@ public class Owner {
 
     @NotBlank
     @Email
+    @Column(unique = true)
     private String email;
+
+    private UUID externalId = UUID.randomUUID();
 
     @NotBlank
     private String telephone;
@@ -43,9 +47,10 @@ public class Owner {
         days.add(possibleDay);
     }
 
-    public Long getId() {
-        return Id;
+    public UUID getExternalId() {
+        return externalId;
     }
+
     public String getName() {
         return name;
     }

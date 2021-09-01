@@ -1,5 +1,6 @@
 package com.aluguelquadra.service.owner.controller;
 
+import com.aluguelquadra.service.day.Day;
 import com.aluguelquadra.service.owner.OwnerRepository;
 import com.aluguelquadra.service.owner.request.OwnerRequest;
 import com.aluguelquadra.service.owner.response.OwnerResponse;
@@ -33,7 +34,7 @@ public class OwnerController {
         var owner = ownerRequest.toModel();
 
         ownerRepository.save(owner);
-        URI uri = builder.path("/{id}").buildAndExpand(owner.getId()).toUri();
+        URI uri = builder.path("/{id}").buildAndExpand(owner.getExternalId()).toUri();
         return ResponseEntity.created(uri).body(new OwnerResponse(owner));
     }
 }

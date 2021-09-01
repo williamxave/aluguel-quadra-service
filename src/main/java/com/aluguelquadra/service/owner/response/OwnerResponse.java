@@ -5,8 +5,11 @@ import com.aluguelquadra.service.owner.Owner;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class OwnerResponse {
+
+    private UUID id;
 
     private String name;
 
@@ -20,6 +23,7 @@ public class OwnerResponse {
     private OwnerResponse(){}
 
     public OwnerResponse(Owner owner) {
+        this.id = owner.getExternalId();
         this.name = owner.getName();
         this.email = owner.getEmail();
         this.telephone = owner.getTelephone();
@@ -42,13 +46,7 @@ public class OwnerResponse {
         return days;
     }
 
-    @Override
-    public String toString() {
-        return "OwnerResponse{" +
-                "name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", telephone='" + telephone + '\'' +
-                ", days=" + days +
-                '}';
+    public UUID getId() {
+        return id;
     }
 }
