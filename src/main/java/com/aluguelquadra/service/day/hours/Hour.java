@@ -2,12 +2,10 @@ package com.aluguelquadra.service.day.hours;
 
 import com.aluguelquadra.service.day.enums.PossibleHour;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.UUID;
 
 @Entity
 public class Hour {
@@ -16,10 +14,11 @@ public class Hour {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    private UUID externalId = UUID.randomUUID();
+
+    @Enumerated(EnumType.STRING)
     private PossibleHour possibleHour;
 
-    @NotNull
     private Boolean rentVerified;
 
     public Hour(@NotBlank PossibleHour possibleHour,
@@ -39,8 +38,7 @@ public class Hour {
         return rentVerified;
     }
 
-    public Long getId() {
-        return id;
+    public UUID getExternalId() {
+        return externalId;
     }
-
 }

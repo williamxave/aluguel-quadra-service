@@ -4,8 +4,11 @@ import com.aluguelquadra.service.day.hours.Hour;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 public class Day {
@@ -14,13 +17,12 @@ public class Day {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    private UUID externalId = UUID.randomUUID();
+
     private Integer day;
 
-    @NotBlank
     private String dayOfWeek;
 
-    @NotBlank
     private String month;
 
     @OneToMany
@@ -37,6 +39,10 @@ public class Day {
         this.day = day;
         this.dayOfWeek = dayOfWeek;
         this.month = month;
+    }
+
+    public UUID getExternalId() {
+        return externalId;
     }
 
     public Long getId() {
