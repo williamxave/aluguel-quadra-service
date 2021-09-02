@@ -3,6 +3,7 @@ package com.aluguelquadra.service.day.enums;
 import com.aluguelquadra.service.day.hours.Hour;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public enum PossibleHour {
@@ -15,10 +16,10 @@ public enum PossibleHour {
     public static List<Hour> generetedHour (){
        List<Hour> hours =  new ArrayList<Hour>();
 
-        for(PossibleHour x : PossibleHour.values()){
-            var hour = new Hour(x, false);
-            hours.add(hour);
-        }
+      Arrays.stream(PossibleHour.values())
+              .map(s -> new Hour(s, false))
+              .forEach(hour -> hours.add(hour));
+
         return hours;
     }
 }
