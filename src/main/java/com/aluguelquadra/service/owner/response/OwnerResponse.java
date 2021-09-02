@@ -27,7 +27,6 @@ public class OwnerResponse {
         this.name = owner.getName();
         this.email = owner.getEmail();
         this.telephone = owner.getTelephone();
-        this.days = owner.getDays();
     }
 
     public String getName() {

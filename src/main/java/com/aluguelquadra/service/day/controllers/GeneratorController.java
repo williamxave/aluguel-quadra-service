@@ -1,7 +1,8 @@
-package com.aluguelquadra.service.day.generatorday;
+package com.aluguelquadra.service.day.controllers;
 
-import com.aluguelquadra.service.day.DayRepository;
-import com.aluguelquadra.service.day.DayResponse;
+import com.aluguelquadra.service.day.generatorday.DaysGenerator;
+import com.aluguelquadra.service.day.repositories.DayRepository;
+import com.aluguelquadra.service.day.response.DayResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;

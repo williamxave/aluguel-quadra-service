@@ -1,8 +1,8 @@
 package com.aluguelquadra.service.day.generatorday;
 
 import com.aluguelquadra.service.day.Day;
-import com.aluguelquadra.service.day.DayRepository;
-import com.aluguelquadra.service.day.hours.HourRepository;
+import com.aluguelquadra.service.day.repositories.DayRepository;
+import com.aluguelquadra.service.day.repositories.HourRepository;
 import com.aluguelquadra.service.day.enums.PossibleHour;
 import org.springframework.stereotype.Component;
 

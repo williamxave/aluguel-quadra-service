@@ -19,7 +19,6 @@ public enum PossibleHour {
       Arrays.stream(PossibleHour.values())
               .map(s -> new Hour(s, false))
               .forEach(hour -> hours.add(hour));
-
         return hours;
     }
 }

@@ -41,4 +41,12 @@ public class Hour {
     public UUID getExternalId() {
         return externalId;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void isRented(){
+        this.rentVerified = true;
+    }
 }

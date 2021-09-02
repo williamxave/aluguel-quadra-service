@@ -30,4 +30,5 @@ public class HourResponse {
     public Boolean getRentVerified() {
         return rentVerified;
     }
+
 }

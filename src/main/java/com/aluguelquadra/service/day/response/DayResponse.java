@@ -1,5 +1,6 @@
-package com.aluguelquadra.service.day;
+package com.aluguelquadra.service.day.response;
 
+import com.aluguelquadra.service.day.Day;
 import com.aluguelquadra.service.day.hours.Hour;
 import com.aluguelquadra.service.day.hours.HourResponse;
 

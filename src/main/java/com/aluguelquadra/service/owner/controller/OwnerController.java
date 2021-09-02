@@ -1,14 +1,10 @@
 package com.aluguelquadra.service.owner.controller;
 
-import com.aluguelquadra.service.day.Day;
-import com.aluguelquadra.service.owner.OwnerRepository;
+import com.aluguelquadra.service.day.repositories.OwnerRepository;
 import com.aluguelquadra.service.owner.request.OwnerRequest;
 import com.aluguelquadra.service.owner.response.OwnerResponse;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
@@ -37,4 +33,10 @@ public class OwnerController {
         URI uri = builder.path("/{id}").buildAndExpand(owner.getExternalId()).toUri();
         return ResponseEntity.created(uri).body(new OwnerResponse(owner));
     }
+
+//    @GetMapping("/{id}")
+//    public Owner test(@PathVariable Long id){
+//       return ownerRepository.findById(id).get();
+//    }
+
 }

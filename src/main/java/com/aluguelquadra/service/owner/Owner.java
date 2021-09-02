@@ -1,13 +1,11 @@
 package com.aluguelquadra.service.owner;
 
-import com.aluguelquadra.service.day.Day;
+import com.aluguelquadra.service.day.renthour.RentHour;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Entity
 public class Owner {
@@ -30,7 +28,7 @@ public class Owner {
     private String telephone;
 
     @OneToMany
-    private List<Day> days = new ArrayList<>();
+    private Set<RentHour> rentHours =  new HashSet<>();
 
     @Deprecated
     private Owner(){}
@@ -43,12 +41,17 @@ public class Owner {
         this.telephone = telephone;
     }
 
-    public void addDay(Day possibleDay){
-        days.add(possibleDay);
-    }
 
     public UUID getExternalId() {
         return externalId;
+    }
+
+    public void addRentHours(RentHour hour){
+        rentHours.add(hour);
+    }
+
+    public Set<RentHour> getRentHours() {
+        return rentHours;
     }
 
     public String getName() {
@@ -63,7 +66,4 @@ public class Owner {
         return telephone;
     }
 
-    public List<Day> getDays() {
-        return days;
-    }
 }
